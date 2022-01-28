@@ -9,6 +9,14 @@ use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
+
+           public function __construct()
+           {
+            
+             $this->middleware(['guest']);
+
+           }
+
     // Created an index method here to do the same thing from Controller_Class function_index which we were doing directly from View.
 
     public function index(){

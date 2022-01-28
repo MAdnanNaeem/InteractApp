@@ -27,7 +27,7 @@
                   
                </div>
 
-               <div class="mb-4 fs-6">
+               <div class="mb-2 fs-6">
                  <label for="password" class="visually-hidden">Password</label>
                   <input style="width: 100%;" type="password" name="password" id="password" placeholder="Enter your password" class=" p-2 bg-light border-2 rounded-3 @error('password') border border-danger @enderror" value="">
                   
@@ -37,6 +37,13 @@
                    </div>
                   @enderror
                   
+               </div>
+
+                <div  class="mb-4 fs-6 clearfix">
+               <div style="float: left; class="mb-4 fs-6">
+                <input  type="checkbox" id="remember" name="remember">
+                <label class="ms-2" for="remember">Remember Me</label>
+               </div>
                </div>
               
         

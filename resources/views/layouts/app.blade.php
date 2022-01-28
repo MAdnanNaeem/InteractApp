@@ -23,7 +23,7 @@
     <a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Post</a>
+    <a class="nav-link" href="{{ route('posts') }}">Post</a>
   </li>
   
 </ul>
@@ -37,7 +37,7 @@
      
  
       <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="#">Adnan Naeem</a>
+    <a class="nav-link active" aria-current="page" href="#">{{ auth()->user()->name }}</a>
   </li>
 
   <li class="nav-item">
