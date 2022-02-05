@@ -9,6 +9,7 @@ class Post extends Model
 {
     use HasFactory;
 
+    
     protected $fillable = [
 
         'body',
@@ -19,9 +20,17 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
+ 
+
     public function likes(){
  
         return $this->hasMany(Likes::class);
 
+    }
+
+    public function checkLiked(User $user){
+
+           // likes and contains is collection
+           return $this->likes->contains('user_id', $user->id);
     }
 }

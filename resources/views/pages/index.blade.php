@@ -18,7 +18,7 @@
             
             <div class="mb-4 fs-6 form-group">
 
-              <label for="body" class="visually-hidden">Boduy</label>
+              <label for="body" class="visually-hidden">Body</label>
                <textarea  placeholder="Post something !" style="height: 140px" name="body" id="body" class="form-control p-2 mt-3 border-2 rounded-3 bg-light @error('body') border border-danger  @enderror" ></textarea>
             
             </div>
@@ -35,30 +35,8 @@
 
       @if ($posts->count())
          @foreach ($posts as $post)
-             <div class="mb-1">
-                <div class="d-flex justify-content-start mb-2">
-                 <a href="" class="text-decoration-none fw-bold fs-5 text-dark">{{ $post->user->name }}</a> <span class="text-secondary fw-normal fs-6 pt-1 ms-2">{{ $post->created_at->diffForHumans() }}</span> 
-                 </div>
-                 <div style="text-align:justify;" class="d-flex justify-content-start">
-                 <p style="font-size: 13pt;" class="mb-2">{{ $post->body }}</p>
-                 </div> 
-             </div> 
-
-             <div class="d-flex align-items-center fs-6 mb-4">
-                <form action="" method="post" class="mr-1">
-                   @csrf
-                   <button style="background-color: white; border:none;" type="submit" class="text-primary">Like</button>
-                </form>
-
-                <form action="" method="post" class="mr-1">
-                   @csrf
-                   <button style="background-color: white; border:none;" type="submit" class="text-primary">Unlike</button>
-                </form>
-
-                <span>
-                   {{ $post->Likes->count() }} {{ Str::plural('like', $post->Likes->count()) }}
-                </span>
-             </div>
+            {{-- Component link with the parameter --}}
+            <x-post :post="$post" />
          @endforeach
               
         <div  class="d-flex justify-content-end me-3 fs-6">
@@ -67,7 +45,7 @@
          
        
       @else
-         <p>Break the ice by sending the first post to others !</p>
+                 <p> <strong> {{ $user->name }} </strong> publish 📢 your first 🥇 post 📤 and Break the ice 🧊🔨!</p>
       @endif
          
      </div>
